@@ -15,8 +15,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>Sem Desculpa</title>
-    <script type="module" crossorigin src="/sem-desculpa-app/assets/index-Bj7rrOhI.js"></script>
-    <link rel="stylesheet" crossorigin href="/sem-desculpa-app/assets/index-CrTVEL9q.css">
+    <script>
+      // aplica o tema antes de desenhar a tela (evita piscar escuro → claro)
+      try {
+        var t = localStorage.getItem('sem-desculpa:tema');
+        var claro = t === 'claro' || (t === 'auto' && matchMedia('(prefers-color-scheme: light)').matches);
+        if (claro) {
+          document.documentElement.dataset.tema = 'claro';
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F3F4F7');
+        }
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="/sem-desculpa-app/assets/index-C3X0F6OR.js"></script>
+    <link rel="stylesheet" crossorigin href="/sem-desculpa-app/assets/index-Ban21N37.css">
   <link rel="manifest" href="/sem-desculpa-app/manifest.webmanifest"></head>
   <body>
     <div id="root"></div>
